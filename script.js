@@ -17,6 +17,8 @@ function password(lenght) {
     for(let i = 0; i < lenght; i++){
         const passcode = Math.floor(Math.random() * math.length);
         input.value += math.charAt(passcode)
+        console.log(input.value);
+        
     }
 }
 
