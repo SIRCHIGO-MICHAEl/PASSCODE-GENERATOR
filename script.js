@@ -26,6 +26,7 @@ function copyText() {
     const input = btnEl.nextElementSibling
     navigator.clipboard.writeText(input.value).then(() => {
         console.log(input.value);
+        getpassword()
         
     })
 }
@@ -39,3 +40,10 @@ copyEl.addEventListener('click', () => {
     },2000)
 
 })
+
+function getpassword() {
+    const passpin = JSON.parse(localStorage.getItem('password')) || [];
+    console.log(passpin);
+
+    localStorage.setItem('password', JSON.stringify(passpin))
+}
