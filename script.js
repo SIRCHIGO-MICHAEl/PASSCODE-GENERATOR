@@ -18,6 +18,10 @@ function password(lenght) {
         const passcode = Math.floor(Math.random() * math.length);
         input.value += math.charAt(passcode)
         console.log(input.value);
+        let date = new Date
+        getpassword(input.value,date)
+       
+
         
     }
 }
@@ -26,7 +30,6 @@ function copyText() {
     const input = btnEl.nextElementSibling
     navigator.clipboard.writeText(input.value).then(() => {
         console.log(input.value);
-        getpassword()
         
     })
 }
@@ -41,9 +44,8 @@ copyEl.addEventListener('click', () => {
 
 })
 
-function getpassword() {
+function getpassword(pass,init) {
     const passpin = JSON.parse(localStorage.getItem('password')) || [];
-    console.log(passpin);
-
+    passpin.unshift(pass,init)
     localStorage.setItem('password', JSON.stringify(passpin))
 }
